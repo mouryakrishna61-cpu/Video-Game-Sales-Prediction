@@ -1,46 +1,50 @@
-# 🎮 Video Game Sales Analysis and Prediction
+# 🎮 Video Game Sales Analysis and Prediction using Python
 
 ## 📌 Project Overview
 
-This project focuses on analyzing video game sales data using **Exploratory Data Analysis (EDA)** and **Machine Learning**.
+This project focuses on analyzing video game sales data using Exploratory Data Analysis (EDA) and Machine Learning.
 
-The main objective is to explore historical video game sales, identify patterns across different regions, platforms, genres and publishers, and build a regression model to predict global video game sales.
+The objective is to explore historical video game sales, understand sales patterns across different regions, platforms, genres and publishers, and develop a Machine Learning model to predict global video game sales.
 
-The project also compares multiple Machine Learning algorithms to identify the best-performing model.
+Three regression algorithms were trained and compared, followed by hyperparameter tuning to identify the best-performing model.
 
 ## 🎯 Project Objectives
 
-- Understand and explore the video game sales dataset.
+- Explore and understand video game sales data.
 - Perform data cleaning and preprocessing.
-- Analyze video game sales trends and patterns.
-- Explore relationships between different features and global sales.
+- Analyze sales patterns across different regions.
+- Identify relationships between different features.
+- Visualize important trends and patterns.
 - Build and compare multiple regression models.
 - Improve model performance using hyperparameter tuning.
 - Predict global video game sales.
 
-## 📂 Dataset Information
+## 📊 Dataset Information
 
-- Dataset: Video Game Sales Dataset (`vgsales.csv`)
-- Total Records: 16,598
-- Target Variable: `Global_Sales`
+- **Dataset:** Video Game Sales (`vgsales.csv`)
+- **Total Records:** 16,598
+- **Prediction Target:** `Global_Sales`
 
-The dataset contains information about video games, including:
-- Game Name
+### Dataset Features
+
+The dataset contains information such as:
+
+- Name
 - Platform
 - Year
 - Genre
 - Publisher
-- North American Sales
-- European Sales
-- Japanese Sales
-- Other Regional Sales
-- Global Sales
+- NA_Sales
+- EU_Sales
+- JP_Sales
+- Other_Sales
+- Global_Sales
 
 ## 🛠️ Technologies and Libraries Used
 
 | Technology | Purpose |
 |---|---|
-| Python | Programming Language |
+| Python | Programming |
 | Google Colab | Development Environment |
 | Pandas | Data Manipulation |
 | NumPy | Numerical Operations |
@@ -49,34 +53,34 @@ The dataset contains information about video games, including:
 | Scikit-learn | Machine Learning |
 | StandardScaler | Feature Scaling |
 | GridSearchCV | Hyperparameter Tuning |
-| Pickle | Saving Model Files |
+| Joblib | Model Serialization |
 
 ## 🔍 Project Workflow
 
 ### 1. Data Loading and Exploration
 - Imported the dataset using Pandas.
-- Examined dataset dimensions and column information.
-- Checked data types and missing values.
-- Explored the dataset using descriptive statistics.
+- Examined dataset dimensions and data types.
+- Explored columns and descriptive statistics.
+- Checked missing values.
 
 ### 2. Data Cleaning and Preprocessing
-- Handled missing values.
 - Prepared the dataset for analysis.
+- Handled missing values.
 - Converted categorical variables into numerical values using encoding.
-- Separated independent variables (X) and the target variable (y).
+- Prepared independent variables (X) and the target variable (y).
 
 ### 3. Exploratory Data Analysis (EDA)
 - Explored video game sales patterns.
-- Analyzed sales across different regions.
+- Analyzed regional sales.
 - Examined relationships between dataset features.
-- Used visualizations to understand data distributions and patterns.
+- Used visualizations to understand distributions and trends.
 
 ### 4. Feature Scaling
 Applied `StandardScaler` to scale the training and testing features.
 
 ### 5. Machine Learning Model Development
 
-Developed and compared three regression algorithms:
+Trained and compared three regression algorithms:
 
 - Linear Regression
 - Decision Tree Regressor
@@ -92,9 +96,16 @@ Evaluated model performance using:
 
 ### 7. Hyperparameter Tuning
 
-Used `GridSearchCV` with 5-fold cross-validation to tune Decision Tree and Random Forest models.
+Used `GridSearchCV` with 5-fold cross-validation and R² scoring to tune the Decision Tree and Random Forest models.
 
-Selected the best parameters based on R² scoring.
+### Best Random Forest Parameters
+
+| Parameter | Value |
+|---|---:|
+| n_estimators | 100 |
+| max_depth | 10 |
+| min_samples_split | 5 |
+| random_state | 42 |
 
 ## 🤖 Model Performance Comparison
 
@@ -109,13 +120,14 @@ The following results were obtained after hyperparameter tuning.
 ### Best Performing Model: Random Forest Regressor
 
 Random Forest achieved:
-- Lowest Mean Absolute Error (MAE).
-- Lowest Mean Squared Error (MSE).
-- Highest R² Score.
 
-The results indicate that Random Forest performed better than the other two models on the test dataset.
+- Lowest MAE among the three models.
+- Lowest MSE among the three models.
+- Highest R² score among the three models.
 
-**Note:** The R² score indicates that the model's predictive performance is limited, leaving scope for further improvement.
+The tuned Random Forest model was selected as the final model and saved for future predictions.
+
+**Note:** The R² score of approximately 0.115 indicates that the model has limited predictive performance. Further feature engineering and model improvements could help improve the results.
 
 ## 📁 Project Structure
 
@@ -133,19 +145,19 @@ Video-Game-Sales-Prediction/
 
 ## 💾 Saved Model Files
 
-The project includes three saved files:
+The project contains three saved files:
 
-- `video_game_sales_model.pkl` – Saved Machine Learning model.
-- `video_game_sales_scaler.pkl` – Saved feature scaler.
-- `video_game_sales_features.pkl` – Saved feature information.
+- **video_game_sales_model.pkl:** Tuned Random Forest regression model.
+- **video_game_sales_scaler.pkl:** Saved StandardScaler object.
+- **video_game_sales_features.pkl:** Saved feature column information.
 
-These files can be used for future model loading and prediction workflows.
+All three files were saved using Joblib for future model loading and prediction.
 
 ## 📚 Key Learnings
 
 Through this project, I gained practical experience in:
 
-- Data Exploration and Analysis.
+- Exploratory Data Analysis.
 - Data Cleaning and Preprocessing.
 - Data Visualization.
 - Categorical Feature Encoding.
@@ -153,7 +165,7 @@ Through this project, I gained practical experience in:
 - Regression Algorithms.
 - Model Evaluation.
 - Hyperparameter Tuning using GridSearchCV.
-- Saving Machine Learning models using Pickle.
+- Model Saving and Reusability using Joblib.
 
 ## 👨‍💻 Author
 
